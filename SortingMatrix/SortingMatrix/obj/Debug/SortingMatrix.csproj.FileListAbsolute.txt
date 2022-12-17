@@ -6,3 +6,11 @@ C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.
 C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.csproj.CoreCompileInputs.cache
 C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.exe
 C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.pdb
+D:\Git_CSharp\SortingMatrix\SortingMatrix\bin\Debug\SortingMatrix.exe.config
+D:\Git_CSharp\SortingMatrix\SortingMatrix\bin\Debug\SortingMatrix.exe
+D:\Git_CSharp\SortingMatrix\SortingMatrix\bin\Debug\SortingMatrix.pdb
+D:\Git_CSharp\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.csproj.AssemblyReference.cache
+D:\Git_CSharp\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.csproj.SuggestedBindingRedirects.cache
+D:\Git_CSharp\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.csproj.CoreCompileInputs.cache
+D:\Git_CSharp\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.exe
+D:\Git_CSharp\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.pdb
