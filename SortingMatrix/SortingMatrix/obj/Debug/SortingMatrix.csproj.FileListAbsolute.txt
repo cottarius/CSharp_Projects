@@ -1,0 +1,8 @@
+C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\bin\Debug\SortingMatrix.exe.config
+C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\bin\Debug\SortingMatrix.exe
+C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\bin\Debug\SortingMatrix.pdb
+C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.csproj.AssemblyReference.cache
+C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.csproj.SuggestedBindingRedirects.cache
+C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.csproj.CoreCompileInputs.cache
+C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.exe
+C:\Users\cotar\source\repos\SortingMatrix\SortingMatrix\obj\Debug\SortingMatrix.pdb
