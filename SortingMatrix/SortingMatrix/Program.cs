@@ -10,6 +10,7 @@ namespace SortingMatrix
     {
         public static void SortMatrix(int[,] array)
         {
+            Console.WriteLine("Сортировка матрицы от начального элемента до конечного по возрастанию:");
             for (int i = 0; i < array.GetLength(0); i++)
             {                
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -29,7 +30,7 @@ namespace SortingMatrix
                 }
             }
         }
-        public static void PrintMatrix(int[,] array )
+        public static void PrintMatrix(int[,] array)
         {
             for (int i = 0; i < array.GetLength(0); i++) 
             {
@@ -43,6 +44,7 @@ namespace SortingMatrix
         }
         public static void SortMatrixByRows(int[,] array)
         {
+            Console.WriteLine("Сортировка матрицы отдельно по строкам:");
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -59,34 +61,60 @@ namespace SortingMatrix
                 }
             }
         }
-        static public int[,] CreateRandomMatrix()
+        public static void SortMatrixByColumns(int[,] array)
+        {
+            Console.WriteLine("Сортировка матрицы по столбцам:");
+            for(int i = 0; i < array.GetLength(1); i++)
+            {
+                for( int j = 0; j < array.GetLength(0); j++)
+                {
+                    for(int k = j; k < array.GetLength(0); k++)
+                    {
+                        if (array[j, i] > array[k, i])
+                        {
+                            int temp = array[k,i];
+                            array[k, i] = array[j, i];
+                            array[j, i] = temp;
+                        }
+                    }
+                }
+            }
+        }        
+        public static int[,] CreateRandomMatrix()
         {
             Random rand = new Random();
-            int n = rand.Next(3, 5);
-            int m = rand.Next(3, 5);
+            int n = rand.Next(3, 6);
+            int m = rand.Next(3, 6);
             int[,] array = new int[n, m];
             for(int i = 0; i < n; i++)
             {
                 for(int j = 0; j < m; j++)
                 {
                     array[i, j] = rand.Next(1, 10);
-                }
-                Console.WriteLine();
+                }                
             }
             return array;
         }
             
         static void Main(string[] args)
-        {            
-            
+        {                      
             var matrix = CreateRandomMatrix();
+
             PrintMatrix(matrix);
             Console.WriteLine();
+
             SortMatrixByRows(matrix);            
             PrintMatrix(matrix);
+            Console.WriteLine();   
+            
+            SortMatrixByColumns(matrix);
+            PrintMatrix(matrix);
             Console.WriteLine();
+
             SortMatrix(matrix);
             PrintMatrix(matrix);
+            
+            Console.ReadLine();
         }
     }
 }
