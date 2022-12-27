@@ -262,6 +262,28 @@ namespace __KATA_TRAINING__
             }
             return null;
         }
+        public static int RentalCarCost(int d)
+        {
+            int carRent = 40;
+            int total = carRent * d;
+            if (d >= 7)
+            {
+                total -= 50;
+            }
+            else if (d >= 3 && d < 7)
+            {
+                total -= 20;
+            }
+            return total;
+        }
+        public static int PositiveSum(int[] arr)
+        {
+            return arr.Sum(x => (x < 0 ? 0 : x));
+        }
+        public static string boolToWord(bool word)
+        {
+            return word ? "Yes" : "No";
+        }
 
         static void Main(string[] args)
         {
@@ -294,6 +316,7 @@ namespace __KATA_TRAINING__
             Console.WriteLine(DescendingOrder(42145));
             var haystack_1 = new object[] { '3', "123124234", null, "needle", "world", "hay", 2, '3', true, false };
             Console.WriteLine(FindNeedle(haystack_1));
+            Console.WriteLine(RentalCarCost(7));
         }
     }
 }
