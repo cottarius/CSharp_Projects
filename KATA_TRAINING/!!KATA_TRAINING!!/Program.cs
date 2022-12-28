@@ -285,7 +285,7 @@ namespace __KATA_TRAINING__
             return word ? "Yes" : "No";
         }
         public static int sumTwoSmallestNumbers(int[] numbers)
-        {            
+        {
             /*int secondMin = numbers[0];
             int firstMin = numbers[0];
 
@@ -313,9 +313,11 @@ namespace __KATA_TRAINING__
             
             return firstMin + secondMin; 
             */
-            Array.Sort(numbers);
-            int sum = numbers.Take(2).Sum();
-            return sum;
+            //Array.Sort(numbers);
+            //int sum = numbers.Take(2).Sum();
+            //return sum;
+
+            return numbers.OrderBy(x => x).Take(2).Sum();
         }
 
         static void Main(string[] args)
