@@ -284,6 +284,39 @@ namespace __KATA_TRAINING__
         {
             return word ? "Yes" : "No";
         }
+        public static int sumTwoSmallestNumbers(int[] numbers)
+        {            
+            /*int secondMin = numbers[0];
+            int firstMin = numbers[0];
+
+            if (numbers[1] < firstMin)
+            {
+                firstMin = numbers[1];
+            }
+            else
+            {
+                secondMin = numbers[1];
+            }
+            
+            for(int i = 2; i < numbers.Length; i++)
+            {
+                if (numbers[i] < firstMin)
+                {
+                    secondMin = firstMin;
+                    firstMin = numbers[i];
+                }
+                else if (numbers[i] < secondMin)
+                {
+                    secondMin = numbers[i];
+                }
+            }
+            
+            return firstMin + secondMin; 
+            */
+            Array.Sort(numbers);
+            int sum = numbers.Take(2).Sum();
+            return sum;
+        }
 
         static void Main(string[] args)
         {
@@ -317,6 +350,8 @@ namespace __KATA_TRAINING__
             var haystack_1 = new object[] { '3', "123124234", null, "needle", "world", "hay", 2, '3', true, false };
             Console.WriteLine(FindNeedle(haystack_1));
             Console.WriteLine(RentalCarCost(7));
+            int[] numbers5 = { 19, 5, 42, 2, 77 };
+            Console.WriteLine(sumTwoSmallestNumbers(numbers5));
         }
     }
 }
