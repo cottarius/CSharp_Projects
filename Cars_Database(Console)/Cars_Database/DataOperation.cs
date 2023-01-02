@@ -53,7 +53,7 @@ namespace Cars_Database
             return cars;
 
         }
-        public void InsertCar ()
+        public void InsertCar()
         {
             Data car = new Data();
             Console.WriteLine("*******Insert new Car*******");
@@ -74,7 +74,7 @@ namespace Cars_Database
                 {
                     ParameterName = "@carBrand",
                     Value = car.carBrand,
-                    SqlDbType = SqlDbType.Char,                   
+                    SqlDbType = SqlDbType.NVarChar,                   
                 };
                 sqlCommand.Parameters.Add(parameter);
 
@@ -82,7 +82,7 @@ namespace Cars_Database
                 {
                     ParameterName = "@carModel",
                     Value = car.carModel,
-                    SqlDbType = SqlDbType.Char,                    
+                    SqlDbType = SqlDbType.NVarChar,                    
                 };
                 sqlCommand.Parameters.Add(parameter);
 
@@ -90,7 +90,7 @@ namespace Cars_Database
                 {
                     ParameterName = "@carColor",
                     Value = car.carColor,
-                    SqlDbType = SqlDbType.Char,                    
+                    SqlDbType = SqlDbType.NVarChar,                    
                 };
                 sqlCommand.Parameters.Add(parameter);
 
@@ -104,6 +104,61 @@ namespace Cars_Database
                 sqlCommand.ExecuteNonQuery();
                 CloseConnection();
                 Console.WriteLine("Succesfull!");
+            }
+        }
+
+        public void DeleteCar()
+        {            
+            Console.Write("Enter car Id to delete car: ");
+            int carId = Convert.ToInt32(Console.ReadLine());
+            OpenConnection();
+            string queryDelete = $"DELETE FROM cars WHERE carId = {carId}";
+            string queryCheck = "DBCC CHECKIDENT ('[cars]', RESEED, 0)";
+            using (SqlCommand sqlCommand = new SqlCommand(queryDelete, connection))
+            {
+                try
+                {
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.ExecuteNonQuery();
+                    Console.WriteLine("Succesfully deleted!");
+                }
+                catch (Exception ex)
+                {
+                    Exception error = new Exception("Error!", ex);
+                    throw error;
+                }                
+            }
+            using (SqlCommand sqlCommand = new SqlCommand(queryCheck, connection))
+            {
+                try
+                {
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.ExecuteNonQuery();
+                    Console.WriteLine("Succesfully checked!");
+                }
+                catch (Exception ex)
+                {
+                    Exception error = new Exception("Error!", ex);
+                    throw error;
+                }
+            }
+            CloseConnection();
+        }
+        public void InsertCustomer()
+        {
+            Data customer = new Data();
+            OpenConnection();
+            string queryInsert = "INSERT INTO customers (lastName, firstName, born, phone, carId) VALUES (@lastName, @firstName, @born, @phone, @carId)";
+
+            using(SqlCommand sqlCommand = new SqlCommand(queryInsert, connection))
+            {
+                SqlParameter parameter = new SqlParameter
+                {
+                    ParameterName = "@lastName",
+                    Value = customer.customerLastName,
+                    SqlDbType = SqlDbType.NVarChar
+                };
+                sqlCommand.Parameters.Add(parameter);
             }
         }
     }
