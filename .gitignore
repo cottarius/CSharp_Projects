@@ -163,9 +163,9 @@ UpgradeLog*.htm
 
 
 #LightSwitch generated files
-GeneratedArtifacts/
-_Pvt_Extensions/
-ModelManifest.xml
+#GeneratedArtifacts/
+#_Pvt_Extensions/
+#ModelManifest.xml
 
 # =========================
 # Windows detritus
