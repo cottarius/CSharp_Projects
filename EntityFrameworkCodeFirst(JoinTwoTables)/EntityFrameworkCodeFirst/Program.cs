@@ -23,12 +23,7 @@ namespace EntityFrameworkCodeFirst
                     case 1:
                         {
                             Console.Clear();
-                            InfoMenu();
-
-                            if(stateMenu > 4 || stateMenu < 0)
-                            {
-                                return;
-                            }
+                            InfoMenu();                            
                             switch(stateMenu)
                             {
                                 case 1:
@@ -37,7 +32,8 @@ namespace EntityFrameworkCodeFirst
                                         GetEmployee();
                                     }
                                     Console.ReadKey();
-                                    Console.Clear();                                    
+                                    Console.Clear();  
+                                    Menu();
                                     break;
 
                                 case 2:
@@ -47,6 +43,7 @@ namespace EntityFrameworkCodeFirst
                                     }
                                     Console.ReadKey();
                                     Console.Clear();                                    
+                                    Menu();
                                     break;
 
                                 case 3:
@@ -56,13 +53,14 @@ namespace EntityFrameworkCodeFirst
                                     }
                                     Console.ReadKey();
                                     Console.Clear();                                    
+                                    Menu();
                                     break;
 
                                 case 4:
                                     {
-                                        Console.Clear();
-                                        Menu();
-                                    }                                    
+                                        Console.Clear();                                        
+                                    }
+                                    Menu();
                                     break;
 
                             }
@@ -81,12 +79,12 @@ namespace EntityFrameworkCodeFirst
             Console.Write("Input number: ");
             while(!Int32.TryParse(Console.ReadLine(), out stateMenu))
             {
-                Console.Write("Incorrect number!");
+                Console.Write("Incorrect number! ");                       
             }
-            if(stateMenu > 1 || stateMenu < 0)
+            if (stateMenu > 1 || stateMenu < 0)
             {
-                Console.WriteLine("Incorrect number!");
-                return;
+                Console.Clear();
+                Menu();
             }
         }
         public static void InfoMenu()
@@ -101,6 +99,11 @@ namespace EntityFrameworkCodeFirst
             while (!Int32.TryParse(Console.ReadLine(), out stateMenu))
             {
                 Console.WriteLine("Incorrect number!");
+            }
+            if (stateMenu > 4 || stateMenu < 0)
+            {        
+                Console.Clear();
+                InfoMenu();
             }
         }
         public static void GetEmployee()
