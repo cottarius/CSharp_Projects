@@ -58,7 +58,7 @@ namespace Cars_Database
                          }
                          Console.ReadKey();
                          Console.Clear();
-                         ListMenu();
+                         //ListMenu();
                          break;
 
                      case 2:
@@ -71,7 +71,7 @@ namespace Cars_Database
                          }
                          Console.ReadKey();
                          Console.Clear();
-                         ListMenu();
+                         //ListMenu();
                          break;
 
                      case 3:
@@ -84,7 +84,7 @@ namespace Cars_Database
                          }
                          Console.ReadKey();
                          Console.Clear();
-                         ListMenu();
+                         //ListMenu();
                          break;
 
                  }                
