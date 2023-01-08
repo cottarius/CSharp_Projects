@@ -77,6 +77,16 @@ namespace EntityFrameworkCodeFirst
                         Console.Clear();
                         Menu();
                         break;
+
+                    case 3:
+                        {
+                            
+                            DeleteEmployee();
+                        }
+                        Console.ReadKey();
+                        Console.Clear();
+                        Menu();
+                        break;
                 }
             }
         }        
@@ -85,13 +95,14 @@ namespace EntityFrameworkCodeFirst
             Console.WriteLine("**********Menu**********");
             Console.WriteLine("1. Info");
             Console.WriteLine("2. Add Employee");
+            Console.WriteLine("3. Delete Employee");
             Console.WriteLine("0. Exit");
             Console.Write("Input number: ");
             while(!Int32.TryParse(Console.ReadLine(), out stateMenu))
             {
                 Console.Write("Incorrect number! ");                       
             }
-            if (stateMenu > 2 || stateMenu < 0)
+            if (stateMenu > 3 || stateMenu < 0)
             {
                 Console.Clear();
                 Menu();
@@ -164,6 +175,31 @@ namespace EntityFrameworkCodeFirst
                 db.EMPLOYEE.Add(employee);
                 db.SaveChanges();
                 Console.WriteLine("Success!");
+            }
+        }
+        public static void DeleteEmployee()
+        {
+            using (Bank db = new Bank())
+            {
+                Console.Clear();
+                Console.Write("Enter employees Id to remove: ");
+                int index = Convert.ToInt32(Console.ReadLine());
+
+                EMPLOYEE employee = db.EMPLOYEE.Find(index);
+                /*if(index > db.EMPLOYEE.Count())
+                {
+                    Console.WriteLine("Incorrect Id!");
+                    Console.Write("Type correct Id: ");
+                    index = Convert.ToInt32(Console.ReadLine());
+                }*/
+
+                if (employee != null)
+                {
+                    db.EMPLOYEE.Remove(employee);
+                    db.SaveChanges();
+                    Console.WriteLine("Success!");
+                }
+               
             }
         }
         public static void GetBranch()
