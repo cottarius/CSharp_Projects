@@ -67,26 +67,37 @@ namespace EntityFrameworkCodeFirst
 
                         }
                         break;
+
+                    case 2:
+                        {
+                            Console.Clear();
+                            AddEmployee();
+                        }
+                        Console.ReadKey();
+                        Console.Clear();
+                        Menu();
+                        break;
                 }
             }
-        }
-
+        }        
         public static void Menu()
         {
             Console.WriteLine("**********Menu**********");
             Console.WriteLine("1. Info");
+            Console.WriteLine("2. Add Employee");
             Console.WriteLine("0. Exit");
             Console.Write("Input number: ");
             while(!Int32.TryParse(Console.ReadLine(), out stateMenu))
             {
                 Console.Write("Incorrect number! ");                       
             }
-            if (stateMenu > 1 || stateMenu < 0)
+            if (stateMenu > 2 || stateMenu < 0)
             {
                 Console.Clear();
                 Menu();
             }
         }
+        
         public static void InfoMenu()
         {
             Console.WriteLine("********Info Menu********");
@@ -119,6 +130,40 @@ namespace EntityFrameworkCodeFirst
                     Console.WriteLine($"{empl.EMP_ID,-5}{empl.FIRST_NAME,-15}{empl.LAST_NAME,-15}" +
                         $"{empl.START_DATE.ToShortDateString(),-15}{empl.TITLE,-15}");
                 }
+            }
+        }
+        public static void AddEmployee()
+        {
+            using (Bank db = new Bank())
+            {
+                Console.Write("Enter employees First Name: ");
+                string firstName = Console.ReadLine();
+                Console.Write("Enter employees Last Name: ");
+                string lastName = Console.ReadLine();
+                Console.Write("Enter employees Start Date: ");
+                DateTime startDate = Convert.ToDateTime(Console.ReadLine());
+                Console.Write("Enter employees Title: ");
+                string title = Console.ReadLine();
+                Console.Write("Enter employees Branch ID: ");
+                int branchId = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter employees Department ID: ");
+                int deptId = Convert.ToInt32(Console.ReadLine());
+                //Console.Write("Enter employees Superior Emp ID: ");
+                //int superiorEmpId = Convert.ToInt32(Console.ReadLine());
+
+                EMPLOYEE employee = new EMPLOYEE()
+                {
+                    FIRST_NAME = firstName,
+                    LAST_NAME = lastName,
+                    START_DATE= startDate,
+                    TITLE= title,
+                    ASSIGNED_BRANCH_ID= branchId,
+                    DEPT_ID= deptId,
+                    SUPERIOR_EMP_ID = null,
+                };
+                db.EMPLOYEE.Add(employee);
+                db.SaveChanges();
+                Console.WriteLine("Success!");
             }
         }
         public static void GetBranch()
