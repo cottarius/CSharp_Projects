@@ -13,18 +13,23 @@ namespace EntityFrameworkCodeFirst
                 
         static void Main(string[] args)
         {
+            Interface();
+        }
+
+        private static void Interface()
+        {
             Console.Clear();
             Menu();
 
-            while(stateMenu != 0)
+            while (stateMenu != 0)
             {
-                switch(stateMenu)
+                switch (stateMenu)
                 {
                     case 1:
                         {
                             Console.Clear();
-                            InfoMenu();                            
-                            switch(stateMenu)
+                            InfoMenu();
+                            switch (stateMenu)
                             {
                                 case 1:
                                     {
@@ -32,7 +37,7 @@ namespace EntityFrameworkCodeFirst
                                         GetEmployee();
                                     }
                                     Console.ReadKey();
-                                    Console.Clear();  
+                                    Console.Clear();
                                     Menu();
                                     break;
 
@@ -42,7 +47,7 @@ namespace EntityFrameworkCodeFirst
                                         GetBranch();
                                     }
                                     Console.ReadKey();
-                                    Console.Clear();                                    
+                                    Console.Clear();
                                     Menu();
                                     break;
 
@@ -52,13 +57,13 @@ namespace EntityFrameworkCodeFirst
                                         FullStatistic();
                                     }
                                     Console.ReadKey();
-                                    Console.Clear();                                    
+                                    Console.Clear();
                                     Menu();
                                     break;
 
                                 case 4:
                                     {
-                                        Console.Clear();                                        
+                                        Console.Clear();
                                     }
                                     Menu();
                                     break;
@@ -80,7 +85,7 @@ namespace EntityFrameworkCodeFirst
 
                     case 3:
                         {
-                            
+
                             DeleteEmployee();
                         }
                         Console.ReadKey();
@@ -89,7 +94,8 @@ namespace EntityFrameworkCodeFirst
                         break;
                 }
             }
-        }        
+        }
+
         public static void Menu()
         {
             Console.WriteLine("**********Menu**********");
