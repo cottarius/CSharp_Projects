@@ -133,10 +133,14 @@ namespace EntityFrameworkCodeFirst
                         employee.LAST_NAME = lastName;
                     }
                     Console.Write("Введите дату поступления сотрудника: ");
-                    DateTime startDate = DateTime.Parse(Console.ReadLine()); //ОШИБКА!!!
+                    DateTime startDate; //ОШИБКА!!!
+                    if(!DateTime.TryParse(Console.ReadLine(), out startDate))
+                    {
+                        startDate = DateTime.MinValue;     
+                    }
                     if(startDate != null)
                     {
-                        employee.START_DATE = startDate;
+                        employee.START_DATE = (startDate);
                     }
                     Console.Write("Введите должность сотрудника: ");
                     string title = Console.ReadLine();
@@ -145,17 +149,22 @@ namespace EntityFrameworkCodeFirst
                         employee.TITLE = title;
                     }
                     Console.Write("Введите Id филиала: ");
-                    int? branchId = Convert.ToInt32(Console.ReadLine());
-                    if(branchId != null) 
+                    int branchId;
+                    if(!int.TryParse(Console.ReadLine(), out branchId))
                     {
+                        branchId = int.MinValue;
+                    }
+                    //if(branchId != null) 
+                    //{
                         employee.ASSIGNED_BRANCH_ID = branchId;
-                    }
+                    //}
                     Console.Write("Введите Id отдела: ");
-                    int? deptId = Convert.ToInt32(Console.ReadLine());
-                    if(deptId != null) 
+                    int deptId;
+                    if(!int.TryParse(Console.ReadLine(), out deptId))
                     {
-                        employee.DEPT_ID = deptId;
+                        deptId = int.MinValue;
                     }
+                    employee.DEPT_ID = deptId;
                     db.Entry(employee).State = EntityState.Modified;
                     db.SaveChanges();
                     Console.WriteLine();
