@@ -133,14 +133,10 @@ namespace EntityFrameworkCodeFirst
                         employee.LAST_NAME = lastName;
                     }
                     Console.Write("Введите дату поступления сотрудника: ");
-                    DateTime startDate; //ОШИБКА!!!
-                    if(!DateTime.TryParse(Console.ReadLine(), out startDate))
+                    string startDate = Console.ReadLine();
+                    if(!String.IsNullOrEmpty(startDate))
                     {
-                        startDate = DateTime.MinValue;     
-                    }
-                    if(startDate != null)
-                    {
-                        employee.START_DATE = (startDate);
+                        employee.START_DATE = DateTime.Parse(startDate);
                     }
                     Console.Write("Введите должность сотрудника: ");
                     string title = Console.ReadLine();
@@ -149,22 +145,17 @@ namespace EntityFrameworkCodeFirst
                         employee.TITLE = title;
                     }
                     Console.Write("Введите Id филиала: ");
-                    int branchId;
-                    if(!int.TryParse(Console.ReadLine(), out branchId))
+                    string branchId = Console.ReadLine();
+                    if (!String.IsNullOrEmpty(branchId))
                     {
-                        branchId = int.MinValue;
-                    }
-                    //if(branchId != null) 
-                    //{
-                        employee.ASSIGNED_BRANCH_ID = branchId;
-                    //}
+                        employee.ASSIGNED_BRANCH_ID = Int32.Parse(branchId);
+                    }                    
                     Console.Write("Введите Id отдела: ");
-                    int deptId;
-                    if(!int.TryParse(Console.ReadLine(), out deptId))
+                    string deptId = Console.ReadLine();
+                    if (!String.IsNullOrEmpty(deptId))
                     {
-                        deptId = int.MinValue;
+                        employee.DEPT_ID = Int32.Parse(deptId);
                     }
-                    employee.DEPT_ID = deptId;
                     db.Entry(employee).State = EntityState.Modified;
                     db.SaveChanges();
                     Console.WriteLine();
