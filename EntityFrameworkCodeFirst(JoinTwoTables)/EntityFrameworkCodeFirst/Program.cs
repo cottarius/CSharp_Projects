@@ -67,9 +67,7 @@ namespace EntityFrameworkCodeFirst
                                     }
                                     Menu();
                                     break;
-
                             }
-
                         }
                         break;
 
@@ -92,6 +90,76 @@ namespace EntityFrameworkCodeFirst
                         Console.Clear();
                         Menu();
                         break;
+
+                    case 4:
+                        {
+                            ModifyEmployee();
+                        }
+                        Console.ReadKey();
+                        Console.Clear();
+                        Menu();
+                        break;
+                }
+            }
+        }
+
+        private static void ModifyEmployee()
+        {
+            using(Bank db = new Bank())
+            {                
+                Console.Write("Введите Id сотрудника для редактирования: ");
+                int id = Convert.ToInt32(Console.ReadLine());
+                EMPLOYEE employee = db.EMPLOYEE.Find(id);
+                Console.WriteLine("{0, -5}{1, -15}{2,-15}{3,-15}{4,-15}{5, -15}{6}", "Id", "First Name",
+                    "Last Name", "Start Date", "Title", "Branch Id", "Department Id");
+                Console.WriteLine("-------------------------------------------------------------" +
+                    "---------------------------------");
+                Console.WriteLine($"{employee.EMP_ID,-5}{employee.FIRST_NAME,-15}{employee.LAST_NAME,-15}" +
+                        $"{employee.START_DATE.ToShortDateString(),-15}{employee.TITLE,-15}" +
+                        $"{employee.ASSIGNED_BRANCH_ID, -15}{employee.DEPT_ID}");
+                if (employee != null)
+                {
+                    
+                    Console.Write("Введите имя сотрудника: ");
+                    string firstName = Console.ReadLine();
+                    if(!String.IsNullOrEmpty(firstName))
+                    {
+                        employee.FIRST_NAME = firstName;
+                    }
+                    Console.Write("Введите фамилию сотрудника: ");
+                    string lastName = Console.ReadLine();
+                    if(!String.IsNullOrEmpty(lastName))
+                    {
+                        employee.LAST_NAME = lastName;
+                    }
+                    Console.Write("Введите дату поступления сотрудника: ");
+                    DateTime startDate = DateTime.Parse(Console.ReadLine()); //ОШИБКА!!!
+                    if(startDate != null)
+                    {
+                        employee.START_DATE = startDate;
+                    }
+                    Console.Write("Введите должность сотрудника: ");
+                    string title = Console.ReadLine();
+                    if(!String.IsNullOrEmpty(title))
+                    {
+                        employee.TITLE = title;
+                    }
+                    Console.Write("Введите Id филиала: ");
+                    int? branchId = Convert.ToInt32(Console.ReadLine());
+                    if(branchId != null) 
+                    {
+                        employee.ASSIGNED_BRANCH_ID = branchId;
+                    }
+                    Console.Write("Введите Id отдела: ");
+                    int? deptId = Convert.ToInt32(Console.ReadLine());
+                    if(deptId != null) 
+                    {
+                        employee.DEPT_ID = deptId;
+                    }
+                    db.Entry(employee).State = EntityState.Modified;
+                    db.SaveChanges();
+                    Console.WriteLine();
+                    Console.WriteLine("Success!");
                 }
             }
         }
@@ -102,13 +170,14 @@ namespace EntityFrameworkCodeFirst
             Console.WriteLine("1. Info");
             Console.WriteLine("2. Add Employee");
             Console.WriteLine("3. Delete Employee");
+            Console.WriteLine("4. Modify Employee");
             Console.WriteLine("0. Exit");
             Console.Write("Input number: ");
             while(!Int32.TryParse(Console.ReadLine(), out stateMenu))
             {
                 Console.Write("Incorrect number! ");                       
             }
-            if (stateMenu > 3 || stateMenu < 0)
+            if (stateMenu > 4 || stateMenu < 0)
             {
                 Console.Clear();
                 Menu();
@@ -204,8 +273,7 @@ namespace EntityFrameworkCodeFirst
                     db.EMPLOYEE.Remove(employee);
                     db.SaveChanges();
                     Console.WriteLine("Success!");
-                }
-               
+                }               
             }
         }
         public static void GetBranch()
