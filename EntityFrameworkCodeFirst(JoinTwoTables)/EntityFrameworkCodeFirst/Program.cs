@@ -114,9 +114,13 @@ namespace EntityFrameworkCodeFirst
                     "Last Name", "Start Date", "Title", "Branch Id", "Department Id");
                 Console.WriteLine("-------------------------------------------------------------" +
                     "---------------------------------");
-                Console.WriteLine($"{employee.EMP_ID,-5}{employee.FIRST_NAME,-15}{employee.LAST_NAME,-15}" +
+                if(employee != null )
+                {
+                    Console.WriteLine($"{employee.EMP_ID,-5}{employee.FIRST_NAME,-15}{employee.LAST_NAME,-15}" +
                         $"{employee.START_DATE.ToShortDateString(),-15}{employee.TITLE,-15}" +
-                        $"{employee.ASSIGNED_BRANCH_ID, -15}{employee.DEPT_ID}");
+                        $"{employee.ASSIGNED_BRANCH_ID,-15}{employee.DEPT_ID}");
+                }
+                
                 if (employee != null)
                 {
                     
@@ -247,7 +251,12 @@ namespace EntityFrameworkCodeFirst
                     DEPT_ID= deptId,
                     SUPERIOR_EMP_ID = null,
                 };
+
+                //string queryCheck = "DBCC CHECKIDENT ('EMPLOYEE', RESEED, 0)";
+                //db.Database.ExecuteSqlCommand(queryCheck);
+                //db.SaveChanges();
                 db.EMPLOYEE.Add(employee);
+                
                 db.SaveChanges();
                 Console.WriteLine("Success!");
             }
@@ -271,6 +280,8 @@ namespace EntityFrameworkCodeFirst
                 if (employee != null)
                 {
                     db.EMPLOYEE.Remove(employee);
+                    //string queryCheck = "DBCC CHECKIDENT ('[EMPLOYEE]', RESEED, 0)";
+                    //db.Database.ExecuteSqlCommand(queryCheck);
                     db.SaveChanges();
                     Console.WriteLine("Success!");
                 }               
@@ -324,17 +335,19 @@ namespace EntityFrameworkCodeFirst
                         EmpLastName = ee.e.LAST_NAME,
                         EmpTitle = ee.e.TITLE,
                         Dept = d.NAME,
+                        DeptId = d.DEPT_ID,
                         BranchName = ee.b.NAME,
+                        BranchId = ee.b.BRANCH_ID,
                         BranchCity = ee.b.CITY
                     });
-                Console.WriteLine("{0,-15}{1,-15}{2,-22}{3,-17}{4,-15}{5,-15}", "First Name", "Last Name",
-                    "Title", "Department", "Branch", "City");
+                Console.WriteLine("{0,-15}{1,-15}{2,-22}{3,-17}{4,-8}{5,-15}{6,-10}{7,-15}", "First Name", "Last Name",
+                    "Title", "Department", "Dept_ID", "Branch", "Branch_ID", "City");
                 Console.WriteLine("------------------------------------------------------------------------" +
-                    "---------------------");
+                    "-------------------------------------");
                 foreach (var l in list)
                 {
                     Console.WriteLine($"{l.EmpFirstName,-15}{l.EmpLastName,-15}{l.EmpTitle,-22}{l.Dept,-17}" +
-                        $"{l.BranchName,-15}{l.BranchCity,-15}");
+                        $"{l.DeptId,-8}{l.BranchName,-15}{l.BranchId,-10}{l.BranchCity,-15}");
                 }
             }
         }
