@@ -14,7 +14,7 @@ namespace Array_Constructor
         public void PrintArray(int[] array)
         {               
             Array = array;
-            Console.WriteLine(String.Join(", ", Array));            
+            Console.WriteLine(String.Join(" ", Array));            
         }
 
         public int[] CreateArray()

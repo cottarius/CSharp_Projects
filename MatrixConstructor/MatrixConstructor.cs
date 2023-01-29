@@ -14,9 +14,9 @@ namespace Matrix_Constructor
         public int[,] CreateMatrix(int rowLength, int columnLength, int randomA, int randomB)
         {
             Matrix = new int[rowLength, columnLength];
-            for(int i = 0; i < Matrix.GetLength(0); i++)
+            for (int i = 0; i < Matrix.GetLength(0); i++)
             {
-                for(int j = 0; j < Matrix.GetLength(1); j++)
+                for (int j = 0; j < Matrix.GetLength(1); j++)
                 {
                     Matrix[i, j] = random.Next(randomA, randomB);
                 }
@@ -28,7 +28,7 @@ namespace Matrix_Constructor
         {
             int row, column;
             Console.Write("Введите количество строк матрицы: ");
-            while(!int.TryParse(Console.ReadLine(), out row))
+            while (!int.TryParse(Console.ReadLine(), out row))
             {
                 Console.Write("Введите целое число больше нуля: ");
             }
@@ -62,9 +62,9 @@ namespace Matrix_Constructor
                 Console.Write("Введите целое число больше нуля: ");
             }
             Matrix = new int[row, column];
-            for(int i = 0; i < row; i++)
+            for (int i = 0; i < row; i++)
             {
-                for(int j = 0; j < column; j++)
+                for (int j = 0; j < column; j++)
                 {
                     if (int.TryParse(Console.ReadLine(), out Matrix[i, j])) { }
                     else Console.Write("Неверный формат числа! Записывается значение по-умолчанию (0)...");
@@ -76,17 +76,13 @@ namespace Matrix_Constructor
         public void PrintMatrix(int[,] matrix)
         {
             Matrix = matrix;
-            for(int i = 0; i < Matrix.GetLength(0); i++)
+            for (int i = 0; i < Matrix.GetLength(0); i++)
             {
-                for(int j = 0; j < Matrix.GetLength(1); j++)
+                for (int j = 0; j < Matrix.GetLength(1); j++)
                 {
-                    Console.Write(Matrix[i, j]);
-                    if(j < Matrix.GetLength(1) - 1)
-                    {
-                        Console.Write(", ");
-                    }
+                    Console.Write($"{Matrix[i, j]} ");
                 }
-		Console.WriteLine();
+                Console.WriteLine();
             }
         }
     }
