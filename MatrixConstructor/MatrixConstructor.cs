@@ -85,5 +85,74 @@ namespace Matrix_Constructor
                 Console.WriteLine();
             }
         }
+
+        public int[,] SortMatrix(int[,] matrix)
+        {
+            Matrix = matrix;
+            Console.WriteLine("Сортировка матрицы от начального элемента до конечного по возрастанию:");
+            for (int i = 0; i < Matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < Matrix.GetLength(1); j++)
+                {
+                    for (int k = 0; k < Matrix.GetLength(0); k++)
+                    {
+                        for (int l = 0; l < Matrix.GetLength(1); l++)
+                        {
+                            if (Matrix[i, j] <= Matrix[k, l])
+                            {
+                                int temp = Matrix[i, j];
+                                Matrix[i, j] = Matrix[k, l];
+                                Matrix[k, l] = temp;
+                            }
+                        }
+                    }
+                }
+            }
+            return Matrix;
+        }
+
+        public int[,] SortMatrixByRows(int[,] matrix)
+        {
+            Matrix = matrix;
+            Console.WriteLine("Сортировка матрицы отдельно по строкам:");
+            for (int i = 0; i < Matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < Matrix.GetLength(1); j++)
+                {
+                    for (int k = 0; k < Matrix.GetLength(1) - 1; k++)
+                    {
+                        if (Matrix[i, k] > Matrix[i, k + 1])
+                        {
+                            int temp = Matrix[i, k];
+                            Matrix[i, k] = Matrix[i, k + 1];
+                            Matrix[i, k + 1] = temp;
+                        }
+                    }
+                }
+            }
+            return Matrix;
+        }
+
+        public int[,] SortMatrixByColumns(int[,] matrix)
+        {
+            Matrix = matrix;
+            Console.WriteLine("Сортировка матрицы по столбцам:");
+            for (int i = 0; i < Matrix.GetLength(1); i++)
+            {
+                for (int j = 0; j < Matrix.GetLength(0); j++)
+                {
+                    for (int k = j; k < Matrix.GetLength(0); k++)
+                    {
+                        if (Matrix[j, i] > Matrix[k, i])
+                        {
+                            int temp = Matrix[k, i];
+                            Matrix[k, i] = Matrix[j, i];
+                            Matrix[j, i] = temp;
+                        }
+                    }
+                }
+            }
+            return Matrix;
+        }
     }
 }
