@@ -8,7 +8,7 @@ namespace Array_Constructor
 {
     class ArrayConstructor
     {
-        int[] Array { get; set; }
+        int[]? Array { get; set; }
         Random random = new Random();
 
         public void PrintArray(int[] array)
