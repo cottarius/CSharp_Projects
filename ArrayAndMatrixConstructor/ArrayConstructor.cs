@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Array_Constructor
 {
-    class ArrayConstructor
+    static class ArrayConstructor
     {
-        int[]? Array { get; set; }
-        Random random = new Random();
+        static int[]? IntArray { get; set; }
+        static Random random = new Random();
 
-        public void PrintArray(int[] array)
+        public static void PrintArray(int[] array)
         {               
-            Array = array;
-            Console.WriteLine(String.Join(" ", Array));            
+            IntArray = array;
+            Console.WriteLine(String.Join(" ", IntArray));            
         }
 
-        public int[] CreateArray()
+        public static int[] CreateArray()
         {
             int length;
             Console.Write("Введите количество элементов массива: ");
@@ -25,34 +25,34 @@ namespace Array_Constructor
             {
                 Console.Write("Ошибка! Введите целое положительное число: ");
             }
-            Array = new int[length];
-            for(int i = 0; i < Array.Length; i++)
+            IntArray = new int[length];
+            for(int i = 0; i < IntArray.Length; i++)
             {
                 Console.Write($"Введите {i} элемент массива: ");
-                if(int.TryParse(Console.ReadLine(), out Array[i])) {}
+                if(int.TryParse(Console.ReadLine(), out IntArray[i])) {}
                 else Console.WriteLine("Неверный формат числа! Записывается значение по-умолчанию...");
             }
-            return Array;
+            return IntArray;
         }
-        public int[] CreateArray(int length, int randomA, int randomB)
+        public static int[] CreateArray(int length, int randomA, int randomB)
         {
-            Array = new int[length];
-            for(int i = 0; i < Array.Length; i++)
+            IntArray = new int[length];
+            for(int i = 0; i < IntArray.Length; i++)
             {
-                Array[i] = random.Next(randomA, randomB);
+                IntArray[i] = random.Next(randomA, randomB);
             }
-            return Array;
+            return IntArray;
         }
-        public int[] CreateArray(int length)
+        public static int[] CreateArray(int length)
         {
-            Array = new int[length];
-            for (int i = 0; i < Array.Length; i++)
+            IntArray = new int[length];
+            for (int i = 0; i < IntArray.Length; i++)
             {
                 Console.Write($"Введите {i} элемент массива: ");
-                if (int.TryParse(Console.ReadLine(), out Array[i])) { }
+                if (int.TryParse(Console.ReadLine(), out IntArray[i])) { }
                 else Console.WriteLine("Неверный формат числа! Записывается значение по-умолчанию...");
             }
-            return Array;
+            return IntArray;
         }
     }
 }
