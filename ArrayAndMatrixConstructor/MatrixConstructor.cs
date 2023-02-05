@@ -25,6 +25,19 @@ namespace Matrix_Constructor
             return intMatrix;
         }
 
+        public static double[,] CreateMatrix(int rowLength, int columnLength, int index)
+        {
+            doubleMatrix = new double[rowLength, columnLength];
+            for (int i = 0; i < doubleMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < doubleMatrix.GetLength(1); j++)
+                {
+                    doubleMatrix[i, j] = Math.Round(random.NextDouble() * index, 2);
+                }
+            }
+            return doubleMatrix;
+        }
+
         public static int[,] CreateMatrix(int randomA, int randomB)
         {
             int row, column;
@@ -74,7 +87,7 @@ namespace Matrix_Constructor
             return intMatrix;
         }
 
-        public static void PrintIntMatrix(int[,] matrix)
+        public static void PrintMatrix(int[,] matrix)
         {
             intMatrix = matrix;
             for (int i = 0; i < intMatrix.GetLength(0); i++)
@@ -86,7 +99,7 @@ namespace Matrix_Constructor
                 Console.WriteLine();
             }
         }
-        public static void PrintDoubleMatrix(double[,] matrix)
+        public static void PrintMatrix(double[,] matrix)
         {
             doubleMatrix = matrix;
             for (int i = 0; i < doubleMatrix.GetLength(0); i++)
@@ -171,6 +184,28 @@ namespace Matrix_Constructor
             return intMatrix;
         }
 
+        public static double[,] SortMatrixByRows(double[,] matrix)
+        {
+            doubleMatrix = matrix;
+            Console.WriteLine("Сортировка матрицы отдельно по строкам:");
+            for (int i = 0; i < doubleMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < doubleMatrix.GetLength(1); j++)
+                {
+                    for (int k = 0; k < doubleMatrix.GetLength(1) - 1; k++)
+                    {
+                        if (doubleMatrix[i, k] > doubleMatrix[i, k + 1])
+                        {
+                            double temp = doubleMatrix[i, k];
+                            doubleMatrix[i, k] = doubleMatrix[i, k + 1];
+                            doubleMatrix[i, k + 1] = temp;
+                        }
+                    }
+                }
+            }
+            return doubleMatrix;
+        }
+
         public static int[,] SortMatrixByColumns(int[,] matrix)
         {
             intMatrix = matrix;
@@ -191,6 +226,28 @@ namespace Matrix_Constructor
                 }
             }
             return intMatrix;
+        }
+
+        public static double[,] SortMatrixByColumns(double[,] matrix)
+        {
+            doubleMatrix = matrix;
+            Console.WriteLine("Сортировка матрицы по столбцам:");
+            for (int i = 0; i < doubleMatrix.GetLength(1); i++)
+            {
+                for (int j = 0; j < doubleMatrix.GetLength(0); j++)
+                {
+                    for (int k = j; k < doubleMatrix.GetLength(0); k++)
+                    {
+                        if (doubleMatrix[j, i] > doubleMatrix[k, i])
+                        {
+                            double temp = doubleMatrix[k, i];
+                            doubleMatrix[k, i] = doubleMatrix[j, i];
+                            doubleMatrix[j, i] = temp;
+                        }
+                    }
+                }
+            }
+            return doubleMatrix;
         }
     }
 }
