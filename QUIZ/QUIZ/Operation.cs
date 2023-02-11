@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace QUIZ
 {
     public class Operation
-    {
+    {        
         int stateMenu;
-        string path = @"..\..\..\temp.json";
+        string path = @"..\..\..\DataBase.json";
         Random random = new Random();
         int correctAnswer = 0;
         int questionCount = 0;
@@ -40,6 +40,7 @@ namespace QUIZ
             string serializedItem = JsonConvert.SerializeObject(listBase);
 
             File.WriteAllText(path, serializedItem);
+            Console.WriteLine("Добавлено!");
         }
 
         public void Menu()
@@ -78,6 +79,8 @@ namespace QUIZ
                     Console.WriteLine($"Неверно! Правильный ответ - {answer}");
                 }
                 questionCount++;
+                Thread.Sleep(3000);
+                Console.Clear();
             }
             if (correctAnswer > questionCount / 2)
             {
@@ -85,7 +88,7 @@ namespace QUIZ
             }
             else
             {
-                Console.WriteLine($"Тебе нужно подучить страны и столицы. Правильно ответил на {correctAnswer} из {questionCount}");
+                Console.WriteLine($"Правильно ответил на {correctAnswer} из {questionCount}");
             }
         }
 
