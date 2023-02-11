@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git_CSharp\\QUIZ\\QUIZ\\QUIZ.csproj": {}
+    "D:\\CSharp_Projects\\QUIZ\\QUIZ\\QUIZ.csproj": {}
   },
   "projects": {
-    "D:\\Git_CSharp\\QUIZ\\QUIZ\\QUIZ.csproj": {
+    "D:\\CSharp_Projects\\QUIZ\\QUIZ\\QUIZ.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git_CSharp\\QUIZ\\QUIZ\\QUIZ.csproj",
+        "projectUniqueName": "D:\\CSharp_Projects\\QUIZ\\QUIZ\\QUIZ.csproj",
         "projectName": "QUIZ",
-        "projectPath": "D:\\Git_CSharp\\QUIZ\\QUIZ\\QUIZ.csproj",
+        "projectPath": "D:\\CSharp_Projects\\QUIZ\\QUIZ\\QUIZ.csproj",
         "packagesPath": "C:\\Users\\cotar\\.nuget\\packages\\",
-        "outputPath": "D:\\Git_CSharp\\QUIZ\\QUIZ\\obj\\",
+        "outputPath": "D:\\CSharp_Projects\\QUIZ\\QUIZ\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
