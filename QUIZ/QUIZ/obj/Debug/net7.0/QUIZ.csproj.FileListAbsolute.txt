@@ -1,0 +1,17 @@
+D:\Git_CSharp\QUIZ\QUIZ\bin\Debug\net7.0\QUIZ.exe
+D:\Git_CSharp\QUIZ\QUIZ\bin\Debug\net7.0\QUIZ.deps.json
+D:\Git_CSharp\QUIZ\QUIZ\bin\Debug\net7.0\QUIZ.runtimeconfig.json
+D:\Git_CSharp\QUIZ\QUIZ\bin\Debug\net7.0\QUIZ.dll
+D:\Git_CSharp\QUIZ\QUIZ\bin\Debug\net7.0\QUIZ.pdb
+D:\Git_CSharp\QUIZ\QUIZ\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\QUIZ.csproj.AssemblyReference.cache
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\QUIZ.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\QUIZ.AssemblyInfoInputs.cache
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\QUIZ.AssemblyInfo.cs
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\QUIZ.csproj.CoreCompileInputs.cache
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\QUIZ.csproj.CopyComplete
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\QUIZ.dll
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\refint\QUIZ.dll
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\QUIZ.pdb
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\QUIZ.genruntimeconfig.cache
+D:\Git_CSharp\QUIZ\QUIZ\obj\Debug\net7.0\ref\QUIZ.dll

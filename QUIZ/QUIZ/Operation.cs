@@ -59,6 +59,8 @@ namespace QUIZ
 
         public void Game()
         {
+            correctAnswer = 0;
+            questionCount = 0;
             string json = File.ReadAllText(path);
             List<DataBase> databaseList = JsonConvert.DeserializeObject<List<DataBase>>(json)!;
             var index = Enumerable.Range(0, databaseList!.Count).OrderBy(n => random.Next()).ToArray();
@@ -79,7 +81,9 @@ namespace QUIZ
                     Console.WriteLine($"Неверно! Правильный ответ - {answer}");
                 }
                 questionCount++;
-                Thread.Sleep(3000);
+                //Thread.Sleep(3000);
+                Console.WriteLine("Нажмите любую клавишу...");
+                Console.ReadKey();
                 Console.Clear();
             }
             if (correctAnswer > questionCount / 2)
