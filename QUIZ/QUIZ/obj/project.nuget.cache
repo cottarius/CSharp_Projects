@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4ZHxi1SnFcU2TQyOrq+ovBlA8NJr3uzewHwtZiLA8pw8u3+P1bTbG6VJc1Rse228IE6KjS3Wlq3i85uz5RmBVA==",
+  "dgSpecHash": "QxE1dhByKLeJZaVH8r11xAIT6oWJgcHTmZpIpmThzbChAfFe67C70GV1TW2WrKzmGAdaQI0Sn19Zs10pZTMG2g==",
   "success": true,
-  "projectFilePath": "D:\\CSharp_Projects\\QUIZ\\QUIZ\\QUIZ.csproj",
+  "projectFilePath": "G:\\CSharp_Projects\\QUIZ\\QUIZ\\QUIZ.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\cotar\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+    "C:\\Users\\Happy PC\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
   ],
   "logs": []
 }

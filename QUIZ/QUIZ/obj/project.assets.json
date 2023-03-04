@@ -55,23 +55,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cotar\\.nuget\\packages\\": {},
+    "C:\\Users\\Happy PC\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CSharp_Projects\\QUIZ\\QUIZ\\QUIZ.csproj",
+      "projectUniqueName": "G:\\CSharp_Projects\\QUIZ\\QUIZ\\QUIZ.csproj",
       "projectName": "QUIZ",
-      "projectPath": "D:\\CSharp_Projects\\QUIZ\\QUIZ\\QUIZ.csproj",
-      "packagesPath": "C:\\Users\\cotar\\.nuget\\packages\\",
-      "outputPath": "D:\\CSharp_Projects\\QUIZ\\QUIZ\\obj\\",
+      "projectPath": "G:\\CSharp_Projects\\QUIZ\\QUIZ\\QUIZ.csproj",
+      "packagesPath": "C:\\Users\\Happy PC\\.nuget\\packages\\",
+      "outputPath": "G:\\CSharp_Projects\\QUIZ\\QUIZ\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\cotar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Happy PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -80,7 +80,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -120,7 +119,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
