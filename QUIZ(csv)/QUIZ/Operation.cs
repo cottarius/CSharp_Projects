@@ -15,7 +15,7 @@ namespace QUIZ
     public class Operation
     {
         int stateMenu;
-        string path = @"..\..\..\1.csv";
+        string path = @"..\..\..\questions.csv";
         Random random = new Random();
         int correctAnswer = 0;
         int questionCount = 0;
