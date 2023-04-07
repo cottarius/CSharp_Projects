@@ -99,6 +99,7 @@ namespace Matrix_Constructor
                 Console.WriteLine();
             }
         }
+
         public static void PrintMatrix(double[,] matrix)
         {
             doubleMatrix = matrix;
