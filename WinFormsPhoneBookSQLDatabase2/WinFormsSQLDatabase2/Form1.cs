@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinFormsSQLDatabase2
-{       
+{
     public partial class Form1 : Form
     {
         Database database = new Database();
@@ -36,14 +36,15 @@ namespace WinFormsSQLDatabase2
 
             database.openConnection();
 
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            using (SqlDataReader reader = command.ExecuteReader())
             {
-                ReadSingleRow(dgw, reader);
-            }
-            reader.Close();
 
+                while (reader.Read())
+                {
+                    ReadSingleRow(dgw, reader);
+                }
+            }
+            database.closeConnection();
         }
 
         private void ReadSingleRow(DataGridView view, IDataRecord record)
@@ -81,6 +82,7 @@ namespace WinFormsSQLDatabase2
             //RefreshDataGrid(dataGridView1);
 
             database.closeConnection();
+            RefreshDataGrid(dataGridView1);
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
@@ -99,12 +101,13 @@ namespace WinFormsSQLDatabase2
             if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != String.Empty)
             {
                 dataGridView1.Rows[selectedRowIndex].SetValues(id, name, birthday, phone);
-            }           
+            }
+
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedRow = e.RowIndex;
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
                 textBoxId.Text = row.Cells[0].Value.ToString();
@@ -116,37 +119,52 @@ namespace WinFormsSQLDatabase2
 
         private void buttonChange_Click(object sender, EventArgs e)
         {
-            database.openConnection();
-            Change();
+            if (dataGridView1.Rows.Count != 0)
+            {
+                database.openConnection();
+                Change();
 
-            var id = dataGridView1.Rows[0].Cells[0].Value.ToString();
-            var name = dataGridView1.Rows[0].Cells[1].Value.ToString();
-            var birthday = dataGridView1.Rows[0].Cells[2].Value.ToString();
-            var phone = dataGridView1.Rows[0].Cells[3].Value.ToString();
+                var id = dataGridView1.Rows[0].Cells[0].Value.ToString();
+                var name = dataGridView1.Rows[0].Cells[1].Value.ToString();
+                var birthday = dataGridView1.Rows[0].Cells[2].Value.ToString();
+                var phone = dataGridView1.Rows[0].Cells[3].Value.ToString();
 
-            var changeQuery = $"update birthdaysTable set name = '{name}', birthday = '{birthday}', phone = '{phone}' where id = '{id}'";
+                var changeQuery = $"update birthdaysTable set name = '{name}', birthday = '{birthday}', phone = '{phone}' where id = '{id}'";
 
-            var command = new SqlCommand(changeQuery, database.getConnection());
-            command.ExecuteNonQuery();
-            //RefreshDataGrid(dataGridView1);
+                var command = new SqlCommand(changeQuery, database.getConnection());
+                command.ExecuteNonQuery();
+                //RefreshDataGrid(dataGridView1);
 
-            database.closeConnection();
+                database.closeConnection();
+            }
+            else
+            {
+                MessageBox.Show("Нечего изменять!");
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            database.openConnection();
-            int index = dataGridView1.CurrentCell.RowIndex;
-            dataGridView1.Rows[index].Visible = false;
+            if (dataGridView1.Rows.Count != 0)
+            {
+                database.openConnection();
 
-            var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                int index = dataGridView1.CurrentCell.RowIndex;
+                dataGridView1.Rows[index].Visible = false;
 
-            var deleteQuery = $"delete from birthdaysTable where id = '{id}'";
+                var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
 
-            var command = new SqlCommand(deleteQuery, database.getConnection());
-            command.ExecuteNonQuery();
-            //RefreshDataGrid(dataGridView1);
-            database.closeConnection();
+                var deleteQuery = $"delete from birthdaysTable where id = '{id}'";
+
+                var command = new SqlCommand(deleteQuery, database.getConnection());
+                command.ExecuteNonQuery();
+                //RefreshDataGrid(dataGridView1);
+                database.closeConnection();
+            }
+            else
+            {
+                MessageBox.Show("Таблица пуста!");
+            }
         }
     }
 }

@@ -9,7 +9,9 @@ namespace WinFormsSQLDatabase2
 {
     class Database
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=ACERE5\SQLEXPRESS;Initial Catalog=birthdays; Integrated Security=True");
+        static string connectionString = @"Data Source=HOME-PC\SQLEXPRESS;Initial Catalog=birthdays;Integrated Security=True";
+        SqlConnection connection = new SqlConnection(connectionString);
+
 
         public void openConnection()
         {
